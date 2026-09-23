@@ -385,7 +385,10 @@ export default function EmailGate({
   const [email, setEmail] = useState('');
   const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
+  const [donationOpen, setDonationOpen] = useState(false);
+  const [donationAmount, setDonationAmount] = useState('5');
   const [donationLoading, setDonationLoading] = useState(false);
+  const [donationError, setDonationError] = useState('');
   const [error, setError] = useState('');
   const [step, setStep] = useState<GateStep>('loading');
   const [resendCooldown, setResendCooldown] = useState(0);
@@ -1568,8 +1571,19 @@ export default function EmailGate({
   const heroHasVideo = typeof heroVideoUrl === 'string' && heroVideoUrl.trim().length > 0;
   const loginPanelId = 'email-gate-login-panel';
 
-  const createDonationSession = async () => {
+  const createDonationSession = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if (donationLoading) return;
+
+    const normalizedAmount = donationAmount.trim().replace(',', '.');
+    const euros = Number(normalizedAmount);
+    if (!/^\d+(?:\.\d{1,2})?$/.test(normalizedAmount) || !Number.isFinite(euros) || euros < 1) {
+      setDonationError('Enter a donation amount of at least €1.');
+      return;
+    }
+
+    const amount = Math.round(euros * 100);
+    setDonationError('');
     setDonationLoading(true);
 
     try {
@@ -1586,15 +1600,15 @@ export default function EmailGate({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
-          body: JSON.stringify({
-            appId,
-            returnUrl: window.location.origin,
-          }),
+          body: JSON.stringify({ amount, appId }),
         },
       );
-      const result = await response.json();
-      if (!response.ok || typeof result?.url !== 'string' || !result.url) {
-        throw new Error(result?.error || 'Donation checkout could not be created.');
+      const result: unknown = await response.json().catch(() => null);
+      if (!response.ok || !isRecord(result) || typeof result.url !== 'string' || !result.url) {
+        const message = isRecord(result) && typeof result.error === 'string'
+          ? result.error
+          : 'Donation checkout could not be created.';
+        throw new Error(message);
       }
 
       try {
@@ -1606,8 +1620,14 @@ export default function EmailGate({
         // Cross-origin frame: navigate the current page instead.
       }
       window.location.href = result.url;
-    } catch (donationError) {
-      console.error('[EmailGate] Failed to create donation checkout:', donationError);
+    } catch (caughtError) {
+      console.error('[EmailGate] Failed to create donation checkout:', caughtError);
+      setDonationError(
+        caughtError instanceof Error && caughtError.message
+          ? caughtError.message
+          : 'Donation checkout could not be created.',
+      );
+    } finally {
       setDonationLoading(false);
     }
   };
@@ -2116,10 +2136,30 @@ export default function EmailGate({
           .nf-footer > .nf-nav-logo { justify-self: start; }
           .nf-footer > .nf-nav-links { justify-self: center; }
           .nf-footer-right { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; justify-self: end; gap: 12px; text-align: right; }
-          .nf-donate-btn { border: 1px solid var(--nf-accent); border-radius: var(--nf-radius); background: transparent; color: var(--nf-accent); padding: 9px 13px; font: 900 10px/1 var(--nf-font); letter-spacing: .08em; text-decoration: none; animation: nf-cta-pulse 2.3s ease-in-out infinite; transition: transform .2s ease, filter .2s ease; }
-          .nf-donate-btn:hover { transform: translateY(-2px); filter: brightness(1.14); }
+          .nf-donate-btn { display: inline-flex; align-items: center; justify-content: center; gap: 7px; border: 1px solid var(--nf-accent); border-radius: var(--nf-radius); background: transparent; color: var(--nf-accent); padding: 9px 13px; font: 900 10px/1 var(--nf-font); letter-spacing: .08em; text-decoration: none; animation: nf-cta-pulse 2.3s ease-in-out infinite; transition: transform .2s ease, filter .2s ease; }
+          .nf-donate-btn:hover:not(:disabled) { transform: translateY(-2px); filter: brightness(1.14); }
+          .nf-donate-btn:disabled { cursor: wait; opacity: .72; }
           .nf-footer-donate { grid-column: 1 / -1; display: flex; justify-content: center; padding-top: 8px; }
+          .nf-donation-form { width: min(390px, 100%); border: 1px solid var(--nf-accent); border-radius: var(--nf-radius); background: color-mix(in srgb, var(--nf-bg) 88%, #000); padding: 16px; box-shadow: 0 0 24px color-mix(in srgb, var(--nf-accent) 24%, transparent); text-align: left; }
+          .nf-donation-label { display: block; margin-bottom: 10px; color: var(--nf-accent-2); font: 900 10px/1.3 var(--nf-font); letter-spacing: .1em; text-transform: uppercase; }
+          .nf-donation-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 9px; }
+          .nf-donation-input-wrap { display: flex; align-items: center; border: 1px solid var(--nf-accent-2); border-radius: var(--nf-radius); background: #07050f; color: var(--nf-accent-2); box-shadow: inset 0 0 12px color-mix(in srgb, var(--nf-accent-2) 13%, transparent); }
+          .nf-donation-currency { padding-left: 11px; font: 900 13px/1 var(--nf-font); }
+          .nf-donation-input { min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; color: var(--nf-text); padding: 10px 11px 10px 7px; font: 900 13px/1 var(--nf-font); }
+          .nf-donation-input:focus { box-shadow: inset 0 -1px 0 var(--nf-accent); }
+          .nf-donation-cancel { margin-top: 10px; border: 0; background: transparent; color: var(--nf-muted); padding: 0; font: 800 9px/1 var(--nf-font); letter-spacing: .08em; text-decoration: underline; cursor: pointer; }
+          .nf-donation-cancel:disabled { cursor: wait; opacity: .55; }
+          .nf-donation-error { margin: 9px 0 0; color: #ff5c8a; font: 800 9px/1.45 var(--nf-font); letter-spacing: .04em; }
+          .nf-donate-spinner { width: 11px; height: 11px; border: 2px solid color-mix(in srgb, var(--nf-accent) 28%, transparent); border-top-color: var(--nf-accent); border-radius: 999px; animation: nf-donate-spin .7s linear infinite; }
+          @keyframes nf-donate-spin { to { transform: rotate(360deg); } }
           .nf-footer-thanks { grid-column: 1 / -1; display: flex; align-items: center; justify-content: center; gap: 7px; padding-top: 2px; }
+          .nf-footer-open-source { grid-column: 1 / -1; display: flex; flex-direction: column; align-items: center; gap: 9px; padding-top: 10px; text-align: center; font-family: var(--nf-font); }
+          .nf-open-source-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 9px; }
+          .nf-open-source-github, .nf-license-badge { display: inline-flex; align-items: center; justify-content: center; min-height: 30px; border-radius: var(--nf-radius); padding: 8px 11px; font: 900 9px/1 var(--nf-font); letter-spacing: .1em; text-decoration: none; transition: transform .2s ease, filter .2s ease, box-shadow .2s ease; }
+          .nf-open-source-github { border: 1px solid var(--nf-accent-2); color: var(--nf-accent-2); box-shadow: 0 0 14px color-mix(in srgb, var(--nf-accent-2) 25%, transparent); }
+          .nf-license-badge { border: 1px solid var(--nf-accent); background: color-mix(in srgb, var(--nf-accent) 10%, transparent); color: var(--nf-accent); box-shadow: 0 0 14px color-mix(in srgb, var(--nf-accent) 20%, transparent); }
+          .nf-open-source-github:hover, .nf-license-badge:hover { transform: translateY(-2px); filter: brightness(1.18); box-shadow: 0 0 22px color-mix(in srgb, var(--nf-accent) 38%, transparent); }
+          .nf-open-source-copy { max-width: 620px; margin: 0; color: var(--nf-muted); font-size: 9px; line-height: 1.7; letter-spacing: .08em; }
           .nf-footer-heart { display: inline-block; background: linear-gradient(135deg, #ff2bd6 0%, #ff3158 52%, #ff8a00 100%); background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; font-size: 15px; line-height: 1; filter: drop-shadow(0 0 6px rgba(255, 43, 214, .8)); transform-origin: center; animation: nf-footer-heartbeat .8s ease-in-out infinite; }
           .nf-landing[data-neoflash-theme="cyberpunk"] .nf-hero::after { opacity: 1; background: repeating-linear-gradient(0deg, rgba(0,0,0,.05) 0, rgba(0,0,0,.05) 2px, transparent 2px, transparent 4px); }
           .nf-landing[data-neoflash-theme="cyberpunk"] .nf-wordmark, .nf-landing[data-neoflash-theme="cyberpunk"] .nf-hero-title { text-shadow: 0 0 10px var(--nf-accent), 0 0 28px color-mix(in srgb, var(--nf-accent) 65%, transparent); animation: nf-cyber-flicker 6s steps(1, end) infinite; }
@@ -2180,7 +2220,7 @@ export default function EmailGate({
           }
           @media (prefers-reduced-motion: reduce) {
             .nf-theme-stage, .nf-feature-card, .nf-primary-action, .nf-reveal { transition: none; }
-            .nf-manifesto, .nf-hero-title, .nf-hero-aside, .nf-primary-action, .nf-nav-action, .nf-neon-cta, .nf-donate-btn, .nf-footer-heart, .nf-eyebrow, .nf-section-kicker, .nf-nav-meta, .nf-type-cursor { animation: none !important; }
+            .nf-manifesto, .nf-hero-title, .nf-hero-aside, .nf-primary-action, .nf-nav-action, .nf-neon-cta, .nf-donate-btn, .nf-donate-spinner, .nf-footer-heart, .nf-eyebrow, .nf-section-kicker, .nf-nav-meta, .nf-type-cursor { animation: none !important; }
             .nf-reveal { opacity: 1; transform: none; }
           }
 
@@ -2444,19 +2484,94 @@ export default function EmailGate({
               <span className="nf-reveal">DESCRIBE IT · ANIMATE IT · INSTANTLY · © 2026</span>
             </div>
             <div className="nf-footer-donate">
-              <button
-                type="button"
-                onClick={createDonationSession}
-                disabled={donationLoading}
-                aria-busy={donationLoading}
-                className="nf-donate-btn"
-              >
-                {donationLoading ? 'LOADING...' : 'DONATE ♥'}
-              </button>
+              {!donationOpen ? (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setDonationError('');
+                    setDonationOpen(true);
+                  }}
+                  className="nf-donate-btn"
+                >
+                  DONATE ♥
+                </button>
+              ) : (
+                <form className="nf-donation-form" onSubmit={createDonationSession}>
+                  <label className="nf-donation-label" htmlFor="neoflash-donation-amount">
+                    Choose your amount (€)
+                  </label>
+                  <div className="nf-donation-controls">
+                    <div className="nf-donation-input-wrap">
+                      <span className="nf-donation-currency" aria-hidden="true">€</span>
+                      <input
+                        id="neoflash-donation-amount"
+                        type="text"
+                        inputMode="decimal"
+                        value={donationAmount}
+                        onChange={(event) => {
+                          setDonationAmount(event.target.value);
+                          setDonationError('');
+                        }}
+                        disabled={donationLoading}
+                        autoFocus
+                        className="nf-donation-input"
+                        aria-describedby={donationError ? 'neoflash-donation-error' : undefined}
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={donationLoading}
+                      aria-busy={donationLoading}
+                      className="nf-donate-btn"
+                    >
+                      {donationLoading && <span className="nf-donate-spinner" aria-hidden="true" />}
+                      {donationLoading ? 'CREATING...' : 'DONATE'}
+                    </button>
+                  </div>
+                  <button
+                    type="button"
+                    className="nf-donation-cancel"
+                    disabled={donationLoading}
+                    onClick={() => {
+                      setDonationOpen(false);
+                      setDonationError('');
+                    }}
+                  >
+                    Cancel
+                  </button>
+                  {donationError && (
+                    <p id="neoflash-donation-error" className="nf-donation-error" role="alert">
+                      {donationError}
+                    </p>
+                  )}
+                </form>
+              )}
             </div>
             <div className="nf-footer-thanks">
               <span className="nf-footer-heart" aria-hidden="true">♥</span>
               <span>thanks to audos.com</span>
+            </div>
+            <div className="nf-footer-open-source">
+              <div className="nf-open-source-links">
+                <a
+                  className="nf-open-source-github"
+                  href="https://github.com/joekandy/NeoFlash"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  ⭐ OPEN SOURCE ON GITHUB
+                </a>
+                <a
+                  className="nf-license-badge"
+                  href="https://github.com/joekandy/NeoFlash/blob/main/LICENSE"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  aria-label="Read the NeoFlash MIT License"
+                >
+                  MIT LICENSE
+                </a>
+              </div>
+              <p className="nf-open-source-copy"><em>NeoFlash is free and open source. Fork it, remix it, make the web move again.</em></p>
             </div>
           </footer>
         </div>
