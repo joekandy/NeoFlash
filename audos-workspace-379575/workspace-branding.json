@@ -1,0 +1,154 @@
+{
+  "businessIdea": "NeoFlash is an innovative visual playground designed for creators, developers, and hobbyists looking to bring animated scenes to life through simple text inputs. Targeting users who are both tech-savvy and creatively inclined, NeoFlash offers a unique interface that allows users to choose from demonstrative scenes, write code in an advanced mode, or use simple descriptive sentences in an easy mode. This flexibility caters to a wide range of user expertise, from coding novices to seasoned developers. The platform's real-time rendering feature provides immediate visual feedback, empowering users to see and interact with their creations instantly in SVG format.\n\nThe uniqueness of NeoFlash lies in its declarative language that describes the initial state of scenes and animation rules, which the runtime executes over time. This allows for a fluid creation process where users can effortlessly incorporate primitives, symbols, timelines, and events into their projects. With mobile-friendly viewport support, users can work on the go, making it a versatile tool for dynamic content creation. NeoFlash's forward-thinking architecture is designed for scalability, with future plans to extend its API and database capabilities, ensuring a robust foundation for growing user needs and expanding functionalities.",
+  "targetCustomer": "",
+  "ownerEmail": "p.beriola@gmail.com",
+  "questionnaireAnswers": {},
+  "highAutonomyMode": true,
+  "createdAt": "2026-09-18T21:08:04.562Z",
+  "workspaceId": "db8d97c4-0bcd-42b6-a302-c2ee804fdfdd",
+  "configId": 379575,
+  "businessPlan": "## Business Overview\nNeoFlash\n\n## Customer Profile\nTarget customers identified from business context\n\n### Pain Points\n- Users come to NeoFlash because they want to bring ideas to life visually — without wrestling with heavy animation software or starting from a blank canvas. They might be prototyping a UI concept, building a portfolio piece, teaching a concept, or just exploring what’s possible when code and creativity meet. The underlying problem is the same: turning a mental image into something moving, shareable, and real — quickly, with immediate feedback, and at a skill level that feels comfortable to them.\n\n## Key Problems\n- **Users come to NeoFlash because they want to bring **: Users come to NeoFlash because they want to bring ideas to life visually — without wrestling with heavy animation software or starting from a blank canvas. They might be prototyping a UI concept, building a portfolio piece, teaching a concept, or just exploring what’s possible when code and creativity meet. The underlying problem is the same: turning a mental image into something moving, shareable, and real — quickly, with immediate feedback, and at a skill level that feels comfortable to them.\n\n## Customer Journey\n# NeoFlash Journey Guide\n\n## 1. USER GOALS\n\nUsers come to NeoFlash because they want to bring ideas to life visually — without wrestling with heavy animation software or starting from a blank canvas. They might be prototyping a UI concept, building a portfolio piece, teaching a concept, or just exploring what’s possible when code and creativity meet. The underlying problem is the same: turning a mental image into something moving, shareable, and real — quickly, with immediate feedback, and at a skill level that feels comfortable to them.\n\n---\n\n## 2. QUALIFYING QUESTIONS\n\n**\"What are you hoping to create today?\"**\n\n1. A quick animated scene or visual demo  \n2. Something interactive I can refine with code  \n3. I'm exploring — I want to see what's possible first  \n\n**\"How do you prefer to work?\"**\n\n1. Simple descriptions — tell it what I want in plain language  \n2. Start from a demo scene and tweak from there  \n3. Advanced mode — I want to write and control the logic myself  \n\n---\n\n## 3. JOURNEY NARRATIVE\n\nThe journey usually starts with curiosity. A user lands on NeoFlash with a vague idea — a bouncing logo, a data visualization, a playful character — and the agent’s first job is to narrow that idea without killing the fun. Based on their answers, the agent suggests a starting path: a demo scene to remix, a plain-language prompt in easy mode, or a scaffolded snippet in advanced mode.\n\nFrom there, the experience is iterative. The user describes or edits, NeoFlash renders in real time, and the agent helps interpret what they’re seeing: “That easing feels stiff — want smoother motion?” or “You mentioned a timeline — here’s how to add one.” Each round of feedback teaches the agent something: preferred complexity, whether they lean visual or code-first, and what “done” looks like for them.\n\nAs projects grow, the agent shifts from teacher to collaborator — suggesting primitives, symbols, events, and mobile-friendly viewport tweaks before the user has to ask. Saved work, shared scenes, and repeat visits build a picture of their style and goals, so recommendations feel personal rather than generic. The arc is always the same: idea → first render → refine → share or export — with the agent making each step feel lighter than the last.\n\n---\n\n## 4. APP SUPPORT MAP\n\n**Creation tools** (easy mode, demo scenes, declarative scene language) belong at the start — when the user needs momentum and a first “wow” render, not a blank editor. **Tracking and organization tools** (saved projects, version history, scene libraries) matter once they’ve made something worth keeping or iterating on across sessions. **Automation and extension tools** (API access, reusable symbols, event-driven rules, export pipelines) fit when they’re repeating patterns, embedding scenes elsewhere, or scaling beyond one-off experiments.\n\nIf someone chose “exploring” or “simple descriptions,” lead with demos and easy mode. If they chose “interactive” or “advanced,” skip straight to editable scaffolds and timeline/event guidance. Recommend automation only after they’ve successfully built and saved at least one scene they’d want to reuse.\n\n---\n\n## 5. COMMUNITY OPPORTUNITIES\n\nUsers learn fastest when they can see how others solved similar problems — a smooth camera pan, a looping character, a responsive mobile layout — without reverse-engineering from scratch. A gallery of remixable scenes, tagged by use case and skill level, turns individual experiments into collective know-how; the entrepreneur can surface “most remixed this week” or “beginner-friendly starters” so newcomers borrow confidence from the community’s best patterns.\n\n---\n\n## 6. MONETIZATION HOOK\n\nThe first payment moment is almost always tied to **output**, not features listed on a pricing page. The user writes a sentence or tweaks a demo, watches their scene animate in real time in the viewport, and thinks: *I could use this in my deck, my site, my prototype — today.* That’s the aha — when creation time collapses from hours to minutes and the result actually looks good. Right before the credit card comes out, they’ve usually hit a natural wall: they want to **save more projects**, **export without a watermark**, **keep private work private**, or **use a symbol/API somewhere else** — and the free tier has already proven NeoFlash works for them.\n\nStaying subscribed is a different story. Month two and beyond, they’re paying for **continuity**: a growing library of scenes, faster iteration, collaboration, API/database access as those roll out, and the agent remembering how they like to work. The free→paid boundary should sit **after** the first successful render and one meaningful edit — free users get full creation, real-time preview, and a taste of demos/easy mode; paid unlocks persistence at scale, export, privacy, advanced assets, and integration.\n\nDesign backward from payment: free must deliver a complete “I made something alive” loop; paid must feel like the obvious way to **keep, ship, and reuse** what they already know works.\n\n## AI Tool Suite\n### Scene Log\n**Purpose**: Track every NeoFlash animated scene you create—declarative descriptions, input mode, and primitives—so you can reopen, remix, and ship without losing momentum between sessions.\n**User Story**: I want a quick menu-bar record of every scene I've animated so I can reopen, tweak, and export without starting from scratch.\n\n---\n*Generated on 9/18/2026*\n",
+  "name": "NeoFlash",
+  "tagline": "Describe it. Animate it. Instantly.",
+  "logoUrl": "https://storage.googleapis.com/audos-images/logo-studio/db8d97c4-0bcd-42b6-a302-c2ee804fdfdd/12655560-9acf-45e0-9e15-5162ab4a99ec.png",
+  "iconUrl": "https://storage.googleapis.com/audos-images/logo-studio/db8d97c4-0bcd-42b6-a302-c2ee804fdfdd/12655560-9acf-45e0-9e15-5162ab4a99ec.png",
+  "logoOnDarkUrl": "https://storage.googleapis.com/audos-images/logo-studio/db8d97c4-0bcd-42b6-a302-c2ee804fdfdd/12655560-9acf-45e0-9e15-5162ab4a99ec.png",
+  "colors": {
+    "primary": "#7c3aed",
+    "highlight": "#c576f9",
+    "contrast": "#ffffff",
+    "secondary": "#c576f9",
+    "accent": "#ffffff",
+    "primaryScale": {
+      "50": "#f5effe",
+      "100": "#eadffc",
+      "200": "#dac8fa",
+      "500": "#7235da",
+      "600": "#7c3aed",
+      "700": "#6831c7",
+      "900": "#52269c"
+    },
+    "highlightScale": {
+      "50": "#faf4ff",
+      "100": "#f6e9fe",
+      "200": "#efd9fd",
+      "500": "#b56de5",
+      "600": "#c576f9",
+      "700": "#a563d1",
+      "900": "#824ea4"
+    },
+    "surfaces": {
+      "page": "#f8f5fe",
+      "pageAlt": "#ffffff",
+      "gradientFrom": "#f8f5fe",
+      "gradientVia": "#ffffff",
+      "gradientTo": "#fbf5ff",
+      "card": "#ffffff",
+      "cardHover": "#faf7fe",
+      "panel": "#ffffff",
+      "panelStrong": "#ffffff",
+      "muted": "#fcfbff",
+      "accentSoft": "#f9f1fe",
+      "border": "#e2d4fb",
+      "borderStrong": "#d2bcf9"
+    },
+    "text": {
+      "primary": "#231042",
+      "secondary": "#431f80",
+      "brand": "#231042",
+      "accent": "#372146",
+      "muted": "#5729a6",
+      "onPrimary": "#ffffff",
+      "onHighlight": "#111827",
+      "onContrast": "#7c3aed"
+    },
+    "semantic": {
+      "success": "#16a34a",
+      "warning": "#d97706",
+      "danger": "#dc2626"
+    },
+    "shell": {
+      "buttonText": "#ffffff",
+      "accentButtonText": "#111827",
+      "dockText": "#ffffff",
+      "icon": "#372146",
+      "shadow": "#d8c4fa",
+      "shadowStrong": "#c5a8f7"
+    }
+  },
+  "palette": {
+    "primary": "#7c3aed",
+    "highlight": "#c576f9",
+    "contrast": "#ffffff",
+    "secondary": "#c576f9",
+    "accent": "#ffffff",
+    "primaryScale": {
+      "50": "#f5effe",
+      "100": "#eadffc",
+      "200": "#dac8fa",
+      "500": "#7235da",
+      "600": "#7c3aed",
+      "700": "#6831c7",
+      "900": "#52269c"
+    },
+    "highlightScale": {
+      "50": "#faf4ff",
+      "100": "#f6e9fe",
+      "200": "#efd9fd",
+      "500": "#b56de5",
+      "600": "#c576f9",
+      "700": "#a563d1",
+      "900": "#824ea4"
+    },
+    "surfaces": {
+      "page": "#f8f5fe",
+      "pageAlt": "#ffffff",
+      "gradientFrom": "#f8f5fe",
+      "gradientVia": "#ffffff",
+      "gradientTo": "#fbf5ff",
+      "card": "#ffffff",
+      "cardHover": "#faf7fe",
+      "panel": "#ffffff",
+      "panelStrong": "#ffffff",
+      "muted": "#fcfbff",
+      "accentSoft": "#f9f1fe",
+      "border": "#e2d4fb",
+      "borderStrong": "#d2bcf9"
+    },
+    "text": {
+      "primary": "#231042",
+      "secondary": "#431f80",
+      "brand": "#231042",
+      "accent": "#372146",
+      "muted": "#5729a6",
+      "onPrimary": "#ffffff",
+      "onHighlight": "#111827",
+      "onContrast": "#7c3aed"
+    },
+    "semantic": {
+      "success": "#16a34a",
+      "warning": "#d97706",
+      "danger": "#dc2626"
+    },
+    "shell": {
+      "buttonText": "#ffffff",
+      "accentButtonText": "#111827",
+      "dockText": "#ffffff",
+      "icon": "#372146",
+      "shadow": "#d8c4fa",
+      "shadowStrong": "#c5a8f7"
+    }
+  },
+  "pickedBrandColor": "#7c3aed",
+  "typography": {
+    "font": "Fraunces",
+    "category": "serif",
+    "weights": [
+      400,
+      900
+    ],
+    "headingFont": "Fraunces",
+    "bodyFont": "Space Grotesk"
+  },
+  "heroVideoUrl": "https://storage.googleapis.com/audos-images/videos/scene_group_1789765688081_stitched.mp4"
+}

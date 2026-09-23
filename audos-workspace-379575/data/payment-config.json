@@ -1,0 +1,13 @@
+{
+  "enabled": true,
+  "provider": "stripe",
+  "mode": "connect",
+  "stripeAccountId": "acct_1UIwyeDOGhRi6IbX",
+  "platformFeeBps": 500,
+  "currency": "USD",
+  "businessName": "NeoFlash",
+  "supportEmail": "p.beriola@gmail.com",
+  "defaultTrialDays": 7,
+  "defaultPriceCents": 500,
+  "defaultPriceId": null
+}

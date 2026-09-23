@@ -1,0 +1,476 @@
+{
+  "id": "workspace-379575",
+  "name": "NeoFlash",
+  "description": "Workspace for NeoFlash",
+  "version": "4.0.0",
+  "templateVersion": 4,
+  "publicEntry": {
+    "mode": "space-email-gate",
+    "path": "/site/:configId",
+    "component": "components/EmailGate.tsx",
+    "landingShell": {
+      "version": 1,
+      "source": {
+        "shellSha256": "06decb2e56bc8d9e2da1bfc2a90ab4276dd2df952ef8d1891788d39f771bb4d3"
+      },
+      "seo": {
+        "title": "NeoFlash | Describe it. Animate it. Instantly.",
+        "description": "Turn any motion idea into browser-native SVG animation in seconds with Easy mode and NeoFlash code.",
+        "imageUrl": "https://storage.googleapis.com/audos-images/logo-studio/db8d97c4-0bcd-42b6-a302-c2ee804fdfdd/12655560-9acf-45e0-9e15-5162ab4a99ec.png"
+      },
+      "brand": {
+        "name": "NeoFlash",
+        "tagline": "Describe it. Animate it. Instantly.",
+        "logo": {
+          "url": "https://storage.googleapis.com/audos-images/logo-studio/db8d97c4-0bcd-42b6-a302-c2ee804fdfdd/12655560-9acf-45e0-9e15-5162ab4a99ec.png",
+          "alt": "NeoFlash"
+        }
+      },
+      "appearance": {
+        "preset": "brutalist",
+        "typography": {
+          "headingFont": "Fraunces",
+          "bodyFont": "Space Grotesk"
+        },
+        "palette": {
+          "page": "#f8f5fe",
+          "section": "#ffffff",
+          "surface": "#ffffff",
+          "text": "#231042",
+          "muted": "#5729a6",
+          "primary": "#7c3aed",
+          "onPrimary": "#ffffff",
+          "accent": "#c576f9",
+          "onAccent": "#111827",
+          "contrast": "#ffffff",
+          "border": "#e2d4fb",
+          "heroText": "#ffffff",
+          "footer": "#7c3aed",
+          "onFooter": "#ffffff"
+        }
+      },
+      "sections": [
+        {
+          "kind": "navigation",
+          "variant": "overlay",
+          "links": [
+            {
+              "label": "Inside the playground",
+              "target": "features"
+            },
+            {
+              "label": "Start animating",
+              "target": "cta"
+            }
+          ],
+          "action": {
+            "type": "open-login",
+            "label": "Start animating"
+          }
+        },
+        {
+          "kind": "hero",
+          "variant": "centered",
+          "eyebrow": "THE WEB GETS WEIRD AGAIN",
+          "heading": "Describe it. Animate it. Instantly.",
+          "body": "Type a neon bar at night, a bouncing ball, or a passing car. NeoFlash turns your idea into live vector motion in seconds—no plugins, heavy software, or blank canvas.",
+          "primaryAction": {
+            "type": "open-login",
+            "label": "Open NeoFlash"
+          },
+          "media": {
+            "type": "video",
+            "url": "https://storage.googleapis.com/audos-images/videos/scene_group_1789765688081_stitched.mp4",
+            "label": "NeoFlash preview"
+          }
+        },
+        {
+          "kind": "features",
+          "variant": "cards",
+          "eyebrow": "Inside the playground",
+          "heading": "From motion idea to moving scene—without the friction.",
+          "items": [
+            {
+              "title": "Say it in Easy mode",
+              "body": "Describe any scene in any language. NeoFlash generates valid scene code and the SVG runtime brings it to life in seconds.",
+              "icon": "compass"
+            },
+            {
+              "title": "Own the motion in Advanced mode",
+              "body": "Drop into the declarative NeoFlash language when you want control. Edit primitives, symbols, timelines, and click events while the browser renders every vector live.",
+              "icon": "sparkles"
+            },
+            {
+              "title": "Generate a scene. Keep every version.",
+              "body": "Describe, generate, save, and reload your work directly in the playground. Your scenes persist, ready to reopen and remix whenever the next electric idea hits.",
+              "icon": "rocket"
+            }
+          ]
+        },
+        {
+          "kind": "cta",
+          "variant": "card",
+          "heading": "Your next scene is one sentence away.",
+          "body": "Open the cyberpunk playground, describe the motion in your head, and watch it move—all vector, all browser-native.",
+          "action": {
+            "type": "open-login",
+            "label": "Start animating"
+          }
+        },
+        {
+          "kind": "footer",
+          "variant": "links",
+          "body": "NeoFlash is the browser-native animation playground for visual creators who miss a more expressive web.",
+          "links": [
+            {
+              "label": "Inside the playground",
+              "target": "features"
+            },
+            {
+              "label": "Start animating",
+              "target": "cta"
+            }
+          ],
+          "legal": "© 2026 NeoFlash. All rights reserved."
+        }
+      ]
+    }
+  },
+  "apps": [
+    {
+      "id": "scene-log",
+      "name": "NeoFlash",
+      "icon": "Play",
+      "description": "Describe, code, animate, save, and reload browser-native SVG scenes with NeoFlash.",
+      "dataFile": "data/scene-log.json",
+      "component": "apps/SceneLog/App.tsx"
+    }
+  ],
+  "agent": {
+    "name": "NeoFlash Guide",
+    "thinkingText": "Checking the NeoFlash language…",
+    "welcomeMessage": "Need a quick NeoFlash syntax tip? Ask about primitives, symbols, timelines, or click events.",
+    "starterPrompts": [
+      "How do I make a car move?",
+      "Show me a click event",
+      "Which symbols can I use?"
+    ]
+  },
+  "terminology": {
+    "reading": "loading",
+    "writing": "saving",
+    "creating": "adding",
+    "deleting": "removing",
+    "editing": "updating"
+  },
+  "desktop": {
+    "layout": {
+      "agentPosition": "center",
+      "dockPosition": "left",
+      "appWindowSize": "medium",
+      "customerLandsOnAgent": false,
+      "defaultLandingView": "app",
+      "defaultLandingAppId": "scene-log"
+    },
+    "theme": {
+      "accentColor": "#c576f9",
+      "dockStyle": "glass",
+      "gradient": "from-[#f2fcff] via-[#c4ffe4] to-[#fff3f1]"
+    },
+    "themeRecipe": "glass",
+    "themeTokens": {
+      "palette": {
+        "primary": "#7c3aed",
+        "highlight": "#c576f9",
+        "contrast": "#ffffff",
+        "secondary": "#c576f9",
+        "accent": "#ffffff",
+        "primaryScale": {
+          "50": "#f5effe",
+          "100": "#eadffc",
+          "200": "#dac8fa",
+          "500": "#7235da",
+          "600": "#7c3aed",
+          "700": "#6831c7",
+          "900": "#52269c"
+        },
+        "highlightScale": {
+          "50": "#faf4ff",
+          "100": "#f6e9fe",
+          "200": "#efd9fd",
+          "500": "#b56de5",
+          "600": "#c576f9",
+          "700": "#a563d1",
+          "900": "#824ea4"
+        },
+        "surfaces": {
+          "page": "#f8f5fe",
+          "pageAlt": "#ffffff",
+          "gradientFrom": "#f8f5fe",
+          "gradientVia": "#ffffff",
+          "gradientTo": "#fbf5ff",
+          "card": "#ffffff",
+          "cardHover": "#faf7fe",
+          "panel": "#ffffff",
+          "panelStrong": "#ffffff",
+          "muted": "#fcfbff",
+          "accentSoft": "#f9f1fe",
+          "border": "#e2d4fb",
+          "borderStrong": "#d2bcf9"
+        },
+        "text": {
+          "primary": "#231042",
+          "secondary": "#431f80",
+          "brand": "#231042",
+          "accent": "#372146",
+          "muted": "#5729a6",
+          "onPrimary": "#ffffff",
+          "onHighlight": "#111827",
+          "onContrast": "#7c3aed"
+        },
+        "semantic": {
+          "success": "#16a34a",
+          "warning": "#d97706",
+          "danger": "#dc2626"
+        },
+        "shell": {
+          "buttonText": "#ffffff",
+          "accentButtonText": "#111827",
+          "dockText": "#ffffff",
+          "icon": "#372146",
+          "shadow": "#d8c4fa",
+          "shadowStrong": "#c5a8f7"
+        }
+      },
+      "typography": {
+        "headingFont": "Fraunces",
+        "bodyFont": "Space Grotesk",
+        "fontFamily": "\"Fraunces\", system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+      },
+      "shell": {
+        "accentColor": "#c576f9",
+        "dockStyle": "glass",
+        "pageBackground": "#f8f5fe",
+        "gateBackground": "linear-gradient(135deg, #f8f5fe, #ffffff, #fbf5ff)",
+        "panelBackground": "#ffffff",
+        "panelStrongBackground": "#ffffff"
+      },
+      "cssVariables": {
+        "--space-brand-primary": "#7c3aed",
+        "--space-brand-highlight": "#c576f9",
+        "--space-brand-contrast": "#ffffff",
+        "--space-brand-secondary": "#c576f9",
+        "--space-brand-accent": "#ffffff",
+        "--space-brand-primary-50": "#f5effe",
+        "--space-brand-primary-100": "#eadffc",
+        "--space-brand-primary-200": "#dac8fa",
+        "--space-brand-primary-500": "#7235da",
+        "--space-brand-primary-600": "#7c3aed",
+        "--space-brand-primary-700": "#6831c7",
+        "--space-brand-primary-900": "#52269c",
+        "--space-brand-highlight-50": "#faf4ff",
+        "--space-brand-highlight-100": "#f6e9fe",
+        "--space-brand-highlight-200": "#efd9fd",
+        "--space-brand-highlight-500": "#b56de5",
+        "--space-brand-highlight-600": "#c576f9",
+        "--space-brand-highlight-700": "#a563d1",
+        "--space-brand-highlight-900": "#824ea4",
+        "--space-surface-page": "#f8f5fe",
+        "--space-surface-page-alt": "#ffffff",
+        "--space-surface-gradient-from": "#f8f5fe",
+        "--space-surface-gradient-via": "#ffffff",
+        "--space-surface-gradient-to": "#fbf5ff",
+        "--space-surface-card": "#ffffff",
+        "--space-surface-card-hover": "#faf7fe",
+        "--space-surface-panel": "#ffffff",
+        "--space-surface-panel-strong": "#ffffff",
+        "--space-surface-muted": "#fcfbff",
+        "--space-surface-accent-soft": "#f9f1fe",
+        "--space-border-default": "#e2d4fb",
+        "--space-border-subtle": "#e2d4fb",
+        "--space-border-strong": "#d2bcf9",
+        "--space-text-primary": "#231042",
+        "--space-text": "#231042",
+        "--space-text-secondary": "#431f80",
+        "--space-text-brand": "#231042",
+        "--space-text-accent": "#372146",
+        "--space-text-muted": "#5729a6",
+        "--space-text-on-primary": "#ffffff",
+        "--space-text-on-highlight": "#111827",
+        "--space-text-on-contrast": "#7c3aed",
+        "--space-semantic-success": "#16a34a",
+        "--space-semantic-success-50": "#ecf8f1",
+        "--space-semantic-success-100": "#daf0e2",
+        "--space-semantic-success-500": "#149644",
+        "--space-semantic-success-600": "#16a34a",
+        "--space-semantic-success-700": "#12893e",
+        "--space-semantic-warning": "#d97706",
+        "--space-semantic-warning-50": "#fcf4eb",
+        "--space-semantic-warning-100": "#f9e9d7",
+        "--space-semantic-warning-500": "#c86d06",
+        "--space-semantic-warning-600": "#d97706",
+        "--space-semantic-warning-700": "#b66405",
+        "--space-semantic-danger": "#dc2626",
+        "--space-semantic-danger-50": "#fceeee",
+        "--space-semantic-danger-100": "#f9dcdc",
+        "--space-semantic-danger-500": "#ca2323",
+        "--space-semantic-danger-600": "#dc2626",
+        "--space-semantic-danger-700": "#b92020",
+        "--space-neutral-0": "#ffffff",
+        "--space-neutral-50": "#f8f6fb",
+        "--space-neutral-100": "#f2eef8",
+        "--space-neutral-200": "#e4ddf1",
+        "--space-neutral-300": "#cdbfe4",
+        "--space-neutral-400": "#9a7fca",
+        "--space-neutral-500": "#5729a6",
+        "--space-neutral-600": "#462185",
+        "--space-neutral-700": "#381a6a",
+        "--space-neutral-800": "#27124b",
+        "--space-neutral-900": "#1a0c32",
+        "--space-neutral-950": "#10071e",
+        "--space-shell-button-text": "#ffffff",
+        "--space-shell-accent-button-text": "#111827",
+        "--space-shell-dock-text": "#ffffff",
+        "--space-shell-icon": "#372146",
+        "--space-shell-shadow": "#d8c4fa",
+        "--space-shell-shadow-strong": "#c5a8f7"
+      }
+    },
+    "branding": {
+      "name": "NeoFlash",
+      "tagline": "Describe it. Animate it. Instantly.",
+      "headingFont": "Fraunces",
+      "bodyFont": "Space Grotesk",
+      "colors": {
+        "primary": "#7c3aed",
+        "highlight": "#c576f9",
+        "contrast": "#ffffff",
+        "secondary": "#c576f9",
+        "accent": "#ffffff",
+        "primaryScale": {
+          "50": "#f5effe",
+          "100": "#eadffc",
+          "200": "#dac8fa",
+          "500": "#7235da",
+          "600": "#7c3aed",
+          "700": "#6831c7",
+          "900": "#52269c"
+        },
+        "highlightScale": {
+          "50": "#faf4ff",
+          "100": "#f6e9fe",
+          "200": "#efd9fd",
+          "500": "#b56de5",
+          "600": "#c576f9",
+          "700": "#a563d1",
+          "900": "#824ea4"
+        },
+        "surfaces": {
+          "page": "#f8f5fe",
+          "pageAlt": "#ffffff",
+          "gradientFrom": "#f8f5fe",
+          "gradientVia": "#ffffff",
+          "gradientTo": "#fbf5ff",
+          "card": "#ffffff",
+          "cardHover": "#faf7fe",
+          "panel": "#ffffff",
+          "panelStrong": "#ffffff",
+          "muted": "#fcfbff",
+          "accentSoft": "#f9f1fe",
+          "border": "#e2d4fb",
+          "borderStrong": "#d2bcf9"
+        },
+        "text": {
+          "primary": "#231042",
+          "secondary": "#431f80",
+          "brand": "#231042",
+          "accent": "#372146",
+          "muted": "#5729a6",
+          "onPrimary": "#ffffff",
+          "onHighlight": "#111827",
+          "onContrast": "#7c3aed"
+        },
+        "semantic": {
+          "success": "#16a34a",
+          "warning": "#d97706",
+          "danger": "#dc2626"
+        },
+        "shell": {
+          "buttonText": "#ffffff",
+          "accentButtonText": "#111827",
+          "dockText": "#ffffff",
+          "icon": "#372146",
+          "shadow": "#d8c4fa",
+          "shadowStrong": "#c5a8f7"
+        }
+      },
+      "palette": {
+        "primary": "#7c3aed",
+        "highlight": "#c576f9",
+        "contrast": "#ffffff",
+        "secondary": "#c576f9",
+        "accent": "#ffffff",
+        "primaryScale": {
+          "50": "#f5effe",
+          "100": "#eadffc",
+          "200": "#dac8fa",
+          "500": "#7235da",
+          "600": "#7c3aed",
+          "700": "#6831c7",
+          "900": "#52269c"
+        },
+        "highlightScale": {
+          "50": "#faf4ff",
+          "100": "#f6e9fe",
+          "200": "#efd9fd",
+          "500": "#b56de5",
+          "600": "#c576f9",
+          "700": "#a563d1",
+          "900": "#824ea4"
+        },
+        "surfaces": {
+          "page": "#f8f5fe",
+          "pageAlt": "#ffffff",
+          "gradientFrom": "#f8f5fe",
+          "gradientVia": "#ffffff",
+          "gradientTo": "#fbf5ff",
+          "card": "#ffffff",
+          "cardHover": "#faf7fe",
+          "panel": "#ffffff",
+          "panelStrong": "#ffffff",
+          "muted": "#fcfbff",
+          "accentSoft": "#f9f1fe",
+          "border": "#e2d4fb",
+          "borderStrong": "#d2bcf9"
+        },
+        "text": {
+          "primary": "#231042",
+          "secondary": "#431f80",
+          "brand": "#231042",
+          "accent": "#372146",
+          "muted": "#5729a6",
+          "onPrimary": "#ffffff",
+          "onHighlight": "#111827",
+          "onContrast": "#7c3aed"
+        },
+        "semantic": {
+          "success": "#16a34a",
+          "warning": "#d97706",
+          "danger": "#dc2626"
+        },
+        "shell": {
+          "buttonText": "#ffffff",
+          "accentButtonText": "#111827",
+          "dockText": "#ffffff",
+          "icon": "#372146",
+          "shadow": "#d8c4fa",
+          "shadowStrong": "#c5a8f7"
+        }
+      },
+      "logoUrl": "https://storage.googleapis.com/audos-images/logo-studio/db8d97c4-0bcd-42b6-a302-c2ee804fdfdd/12655560-9acf-45e0-9e15-5162ab4a99ec.png",
+      "heroVideoUrl": "https://storage.googleapis.com/audos-images/videos/scene_group_1789765688081_stitched.mp4"
+    }
+  },
+  "iconUrl": "https://storage.googleapis.com/audos-images/logo-studio/db8d97c4-0bcd-42b6-a302-c2ee804fdfdd/12655560-9acf-45e0-9e15-5162ab4a99ec.png",
+  "updatedAt": "2026-09-18T21:13:52.341Z"
+}
